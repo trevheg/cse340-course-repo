@@ -1,42 +1,67 @@
-html, body {
-    background-color: rgb(223, 246, 255);
-    font-family: Arial, sans-serif;
-    margin: 0;
+:root {
+    --primary-color: #5a77ff; /* Soft blue */
+    --secondary-color: #3a5bff; /* Deep blue */
+    --accent-color: #4e8b4e; /* Sage green */
+    --background-color: #e4f6ff; /* Light blue background */
+    --text-color: #333333; /* Dark grey text */
+    --footer-color: #6a6aff; /* Complementary footer color */
 }
 
-body {
+html, body {
+    background-color: var(--background-color);
+    font-family: 'Arial', sans-serif; /* Consider changing to a web font */
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        font-size: 36px; /* Larger size for main headings */
+        font-weight: 700; /* Bold weight */
+        color: var(--text-color);
+        margin-bottom: 0.5rem; /* Add spacing below headings */
+    }
+    
+    p, li {
+        font-size: 16px; /* Standardize body text */
+        line-height: 1.6; /* Improved readability */
+        color: var(--text-color);
+    }
+
     nav {
-        background-color: rgb(86, 86, 255); /* Set the background color of the nav */
+        background-color: var(--primary-color);
 
         ul {
-            list-style-type: none; /* Remove default list styling */
-            padding: .5rem; 
-            margin-top: 0;
-            display: flex; /* Use flexbox for better alignment */
-            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-            justify-content: center; /* Center items horizontally */
+            list-style-type: none;
+            padding: 0.5rem;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
 
             li {
-                display: inline-block; /* Display list items in a horizontal row */
-                margin: 10px; /* Add space between the items */
+                display: inline-block;
+                margin: 10px;
 
                 a {
-                    text-decoration: none; /* Remove underline from links */
-                    color: white; /* Set link text color */
-                    font-weight: bold; /* Make the text bold */
-                    background-color: blue; /* Match link background with nav */
-                    padding: 10px 15px; /* Add padding for the words */
-                    border-radius: 15px; /* Round corners for a popping effect */
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for popping effect */
-                    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+                    text-decoration: none;
+                    color: white;
+                    font-weight: bold;
+                    background-color: var(--secondary-color);
+                    padding: 10px 15px;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Softer shadow */
+                    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 
                     &:hover {
-                        background-color: rgb(104, 145, 158); /* Change background on hover */
-                        transform: translateY(2px); /* Slightly depress the button on hover */
+                        background-color: rgb(104, 145, 158);
+                        transform: translateY(-2px); /* Lift effect on hover */
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
                     }
 
-                    &.active { /* Style for the current page link */
-                        background-color: #4e8b4e; /* Set active background color */
+                    &.active {
+                        background-color: var(--accent-color);
                     }
                 }
             }
@@ -44,13 +69,59 @@ body {
     }
 
     main {
+        flex: 1;
+        max-width: 800px;
+        margin: 0 auto; 
         padding: 1rem;
-        ul, ol {
-            
-            list-style-type: none; /* Remove bullet points or numbers */
-            padding: 0; /* Remove default padding */
-            margin: 0; /* Optionally remove default margin */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+
+        ul.card-list {
+            display: flex;              /* Enable flexbox layout */
+            flex-wrap: wrap;           /* Allow items to wrap to the next line */
+            justify-content: center;    /* Center items when wrapping */
+            padding: 0; 
+            margin: 0; 
+
+            li.card {
+                background-color: var(--secondary-color);
+                color: white;
+                padding: 1rem;
+                border-radius: 8px;
+                text-align: center;
+                flex: 1 1 300px;    /* Allow cards to grow, shrink and maintain minimum width */
+                max-width: 350px;
+                margin: 1rem;
+                transition: transform 0.2s, box-shadow 0.2s;
+
+                &:hover {
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
+                    transform: translateY(-4px);
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    margin-bottom: 0.5rem;
+                }
+
+                strong {
+                    display: block; 
+                    margin-top: 0.5rem;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
         }
+    }
+
+    footer {
+        background-color: var(--footer-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
     }
 }
 
@@ -59,12 +130,21 @@ body {
     body {
         nav {
             ul {
-                flex-direction: column; /* Stack items vertically on mobile */
-                align-items: center; /* Center items */
-                padding: 10px; /* Add padding around the menu for breathing space */
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
 
                 li {
-                    margin: 15px 0; /* Increase margin for stacked items to space them out */
+                    margin: 15px 0;
+                }
+            }
+        }
+
+        main {
+            ul.card-list {
+                li.card {
+                    flex: 1 1 100%;         /* Take full width on mobile */
+                    max-width: none;        /* Remove restriction on max-width */
                 }
             }
         }
