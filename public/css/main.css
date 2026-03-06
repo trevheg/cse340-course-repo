@@ -1,0 +1,72 @@
+html, body {
+    background-color: rgb(223, 246, 255);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+body {
+    nav {
+        background-color: rgb(86, 86, 255); /* Set the background color of the nav */
+
+        ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: .5rem; 
+            margin-top: 0;
+            display: flex; /* Use flexbox for better alignment */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: center; /* Center items horizontally */
+
+            li {
+                display: inline-block; /* Display list items in a horizontal row */
+                margin: 10px; /* Add space between the items */
+
+                a {
+                    text-decoration: none; /* Remove underline from links */
+                    color: white; /* Set link text color */
+                    font-weight: bold; /* Make the text bold */
+                    background-color: blue; /* Match link background with nav */
+                    padding: 10px 15px; /* Add padding for the words */
+                    border-radius: 15px; /* Round corners for a popping effect */
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add shadow for popping effect */
+                    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+
+                    &:hover {
+                        background-color: rgb(104, 145, 158); /* Change background on hover */
+                        transform: translateY(2px); /* Slightly depress the button on hover */
+                    }
+
+                    &.active { /* Style for the current page link */
+                        background-color: #4e8b4e; /* Set active background color */
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 1rem;
+        ul, ol {
+            
+            list-style-type: none; /* Remove bullet points or numbers */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Optionally remove default margin */
+        }
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 600px) {
+    body {
+        nav {
+            ul {
+                flex-direction: column; /* Stack items vertically on mobile */
+                align-items: center; /* Center items */
+                padding: 10px; /* Add padding around the menu for breathing space */
+
+                li {
+                    margin: 15px 0; /* Increase margin for stacked items to space them out */
+                }
+            }
+        }
+    }
+}

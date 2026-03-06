@@ -9,9 +9,9 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/organizations">Organizations</a></li>
-            <li><a href="/projects">Projects</a></li>
-            <li><a href="/categories">Categories</a></li>
+            <li><a href="/" class="<%= currentPage === 'home' ? 'active' : '' %>">Home</a></li>
+            <li><a href="/organizations" class="<%= currentPage === 'organizations' ? 'active' : '' %>">Organizations</a></li>
+            <li><a href="/projects" class="<%= currentPage === 'projects' ? 'active' : '' %>">Projects</a></li>
+            <li><a href="/categories" class="<%= currentPage === 'categories' ? 'active' : '' %>">Categories</a></li>
         </ul>
     </nav>

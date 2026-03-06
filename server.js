@@ -26,27 +26,28 @@ app.set('view engine', 'ejs');
 // Tell Express where to find your templates
 app.set('views', path.join(__dirname, 'src/views'));
 
+
 /**
  * Routes
  */
 app.get('/', async (req, res) => {
     const title = 'Home';
-    res.render('home', { title });
+    res.render('home', { title, currentPage: 'home' });
 });
 
 app.get('/organizations', async (req, res) => {
     const title = 'Our Partner Organizations';
-    res.render('organizations', { title });
+    res.render('organizations', { title, currentPage: 'organizations' });
 });
 
 app.get('/projects', async (req, res) => {
     const title = 'Service Projects';
-    res.render('projects', { title });
+    res.render('projects', { title, currentPage: 'projects' });
 });
 
 app.get('/categories', async (req, res) => {
     const title = 'Categories';
-    res.render('categories', { title });
+    res.render('categories', { title, currentPage: 'categories' });
 });
 
 app.listen(PORT, () => {
