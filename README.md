@@ -1,5 +1,8 @@
 # cse340-course-repo
 
+GitHub page: https://github.com/trevheg/cse340-course-repo
+Render page: https://cse340-tgh.onrender.com/
+
 Week 1 rubric: 
 1. EJS Pages
 Navigation and EJS pages exist for home, organizations, projects, and categories. The titles of these pages are EJS variables.
