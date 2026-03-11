@@ -12,3 +12,4 @@ const getAllOrganizations = async() => {
 }
 
 export {getAllOrganizations}
+
