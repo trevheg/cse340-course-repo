@@ -47,12 +47,12 @@ CREATE TABLE categories (
 );
 
 INSERT INTO categories (category_name, category_description)
-VALUES ('construction', 'Projects that involve building something.'),
-       ('gardening', 'Projects that involve gardening in some way.'),
-       ('for_kids', 'Projects that benefit children primarily.'),
-       ('event', 'Projects that focus on a single, one-time event as opposed to larger projects. Events may involve more casual attendance.'),
-       ('fundraising', 'Projects that focus on raising money.'),
-       ('distribution', 'Projects that focus on the gathering and distribution of goods for charity.');
+VALUES ('Construction', 'Projects that involve building something.'),
+       ('Gardening', 'Projects that involve gardening in some way.'),
+       ('For Kids', 'Projects that benefit children primarily.'),
+       ('Event', 'Projects that focus on a single, one-time event as opposed to larger projects. Events may involve more casual attendance.'),
+       ('Fundraising', 'Projects that focus on raising money.'),
+       ('Distribution', 'Projects that focus on the gathering and distribution of goods for charity.');
 
 -- junction table between service_projects and categories
 CREATE TABLE project_categories (
