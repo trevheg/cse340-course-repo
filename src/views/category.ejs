@@ -2,8 +2,11 @@
 
 <main>
     <h1><%= title %>:</h1>
-    <h2><%= categoryDetails.category_name %></h2>
-    <p><%= categoryDetails.category_description %></p>
+    <div class="info-box">
+        <h2><%= categoryDetails.category_name %></h2>
+        <p><%= categoryDetails.category_description %></p>        
+    </div>
+
     <ul class="card-list">
         <% categoryProjects.forEach(project => { %>
             <li class="card">

@@ -98,7 +98,8 @@ html, body {
                 &:hover {
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
                     transform: translateY(-4px);
-                    background-color: var(--primary-color);
+                    background-color: var(--accent-color);
+                    transition: background-color 0.2s;
                 }
 
                 img {
@@ -128,6 +129,15 @@ html, body {
                 h2 {
                     margin: 0;
                 }
+            }
+        }
+
+        .info-box {
+            border: solid 1rem var(--accent-color);
+            border-radius: 1rem;
+            padding: 1rem;
+            a {
+                color: var(--primary-color)
             }
         }
     }

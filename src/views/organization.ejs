@@ -1,15 +1,20 @@
 <%- include('partials/header') %>
 <main>
     <h1><%= title %></h1>
-    <h2><%= organizationDetails.name  %></h2>
-    <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
+    <div class="info-box">
+        <h2><%= organizationDetails.name  %></h2>
+        <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
 
-    <p>Description: <%= organizationDetails.description %></p>
+        <p>Description: <%= organizationDetails.description %></p>        
+    </div>
+
 
     <h3>Service Projects</h3>
     <ul class="card-list">
         <% projects.forEach(project => { %>
-            <li class="card"><a href="/project/<%= project.project_id %>"><%= project.title %></a></li>
+            <li class="card">
+                <a href="/project/<%= project.project_id %>"><h2><%= project.title %></h2></a>
+            </li>
         <% }) %>
     </ul>
 
