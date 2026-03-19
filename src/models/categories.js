@@ -11,7 +11,7 @@ const getAllCategories = async() => {
     return result.rows;
 }
 
-const getCategoryDetails = async() => {
+const getCategoryDetails = async(categoryId) => {
   const query = `
     SELECT 
       category_id,
@@ -33,7 +33,7 @@ const getCategoryProjects = async(categoryId) => {
       c.category_id,
       c.category_name,
       p.project_id,
-      p.title AS project_title,
+      p.title AS project_title
     FROM categories AS c
     JOIN project_categories AS pc ON c.category_id = pc.category_id
     JOIN service_projects AS p ON p.project_id = pc.project_id
