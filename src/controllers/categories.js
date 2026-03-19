@@ -8,4 +8,9 @@ const showCategoriesPage = async (req, res) => {
                               categories });
 }
 
+const showCategoryPage = async (req, res) => {
+    const title = "Category Details";
+    
+}
+
 export { showCategoriesPage };
