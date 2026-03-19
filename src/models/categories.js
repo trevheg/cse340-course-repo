@@ -11,7 +11,7 @@ const getAllCategories = async() => {
     return result.rows;
 }
 
-const getCategory = async() => {
+const getCategoryDetails = async() => {
   const query = `
     SELECT 
       category_id,
@@ -32,10 +32,8 @@ const getCategoryProjects = async(categoryId) => {
     SELECT 
       c.category_id,
       c.category_name,
-      c.category_description,
       p.project_id,
       p.title AS project_title,
-      p.description AS project_description
     FROM categories AS c
     JOIN project_categories AS pc ON c.category_id = pc.category_id
     JOIN service_projects AS p ON p.project_id = pc.project_id
@@ -48,4 +46,4 @@ const getCategoryProjects = async(categoryId) => {
   return result.rows;
 }
 
-export { getAllCategories, getCategory, getCategoryProjects }
+export { getAllCategories, getCategoryDetails, getCategoryProjects }

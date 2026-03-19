@@ -7,12 +7,12 @@
         <% projects.forEach(project => { %>  
 
             <li class="card">            
-            <a href="/project/<%= project.project_id %>">
-                <h2><%= project.title %></h2> 
-                <p><%= project.description %></p>
-                <p><%= project.date.toLocaleDateString('en-US')  %></p>
-                <p><strong>Organization:</strong> <%= project.organization_name %></p>                
-            </a>
+                <a href="/project/<%= project.project_id %>">
+                    <h2><%= project.title %></h2> 
+                    <p><%= project.description %></p>
+                    <p><%= project.date.toLocaleDateString('en-US')  %></p>
+                    <p><strong>Organization:</strong> <%= project.organization_name %></p>                
+                </a>
 
             </li>
         <% }); %> 
