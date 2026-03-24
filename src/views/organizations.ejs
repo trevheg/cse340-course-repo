@@ -2,18 +2,18 @@
 <main>
     <h1><%= title %></h1>
     <p>Here are a few of our partner organizations:</p>
-        <ul class="card-list">
+    <ul class="card-list">
 
-            <% organizations.forEach(organization => { %>
-                <li class="card">
-                    <a href="/organization/<%= organization.organization_id %>">
-                        <img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
-                        <strong><%= organization.name %></strong>
-                        <p><%= organization.contact_email %></p>                                        
-                    </a>
-                </li>
-            <% }); %>
-        </ul>
-
+        <% organizations.forEach(organization => { %>
+            <li class="card">
+                <a href="/organization/<%= organization.organization_id %>">
+                    <img src="/images/<%= organization.logo_filename %>" alt="<%= organization.name %> logo">
+                    <strong><%= organization.name %></strong>
+                    <p><%= organization.contact_email %></p>                                        
+                </a>
+            </li>
+        <% }); %>
+    </ul>
+    <p><a href="/new-organization">Add a new organization</a></p>
 </main>
 <%- include('partials/footer') %>
