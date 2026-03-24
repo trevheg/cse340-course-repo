@@ -168,6 +168,45 @@ html, body {
                 color: var(--primary-color)
             }
         }
+
+        .add-form {
+            
+            max-width: 480px;
+            margin: 1rem auto;
+            padding: 1rem;
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+
+            label {
+                font-size: 0.95rem;
+                font-weight: 600;
+            }
+
+            textarea, input {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0.8rem 0.9rem; /* roomy for touch */
+                font-size: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+            }
+
+            button {
+                padding: 0.9rem 1.2rem;
+                font-size: 1rem;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+                min-width: 160px; /* ensures button is large on mobile */
+                background-color: var(--secondary-color);
+                color: white;
+            }
+        }
     }
 
     footer {
@@ -200,6 +239,12 @@ html, body {
                     max-width: none;        /* Remove restriction on max-width */
                 }
             }
+        }
+
+        
+        .add-form { 
+            padding: 0.75rem; 
+            button { min-width: 140px; width: 100%; }
         }
     }
 }
