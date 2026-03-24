@@ -63,12 +63,21 @@ app.use((req, res, next) => {
 // Use the imported router to handle routes
 app.use(router);
 
+// this is here to block log stacks of a meaningless 404 error. 
+app.use((req, res, next) => {
+if (req.path === '/.well-known/appspecific/com.chrome.devtools.json') {
+return res.status(204).end(); // or res.status(404).end();
+}
+next();
+});
+
 // Catch-all route for 404 errors
 app.use((req, res, next) => {
     const err = new Error('Page Not Found');
     err.status = 404;
     next(err);
 });
+
 
 // Global error handler
 app.use((err, req, res, next) => {
