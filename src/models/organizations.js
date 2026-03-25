@@ -22,15 +22,38 @@ const getOrganizationDetails = async (organizationId) => {
       FROM organization
       WHERE organization_id = $1;
     `;
-
     
       const query_params = [organizationId];
       const result = await db.query(query, query_params);
-
 
       // Return the first row of the result set, or null if no rows are found
       return result.rows.length > 0 ? result.rows[0] : null;
 };
 
-export { getAllOrganizations, getOrganizationDetails };
+const updateOrganization = async (id, name, description, contactEmail, logoFilename) => {
+  const query = `
+    UPDATE organization
+    SET name = $2,
+        description = $3,
+        contact_email = $4,
+        logo_filename = $5
+    WHERE organization_id = $1
+    RETURNING organization_id;
+  `;
+
+  const query_params = [id, name, description, contactEmail, logoFilename];
+  const result = await db.query(query, query_params);
+
+  if (result.rows.length === 0) {
+    throw new Error('Organization not found');
+  }
+
+  if (process.env.ENABLE_SQL_LOGGING === 'true') {
+    console.log('Updated organization with ID:', id);
+  }
+
+  return result.rows[0].organization_id;
+};
+
+export { getAllOrganizations, getOrganizationDetails, updateOrganization };
 
