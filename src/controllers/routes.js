@@ -37,7 +37,7 @@ router.get('/category/:id', showCategoryDetailsPage);
 router.get('/new-organization', showNewOrganizationForm);
 router.get('/edit-organization/:id', showEditOrganizationForm);
 router.get('/new-project', showNewProjectForm);
-router.get('/project/:projectId/assign-categories', showAssignCategoriesForm);
+router.get('/assign-categories/:projectId', showAssignCategoriesForm);
 
 router.post('/new-organization', organizationValidation, processNewOrganizationForm);
 router.post('/edit-organization/:id', organizationValidation, processEditOrganizationForm);
