@@ -23,11 +23,14 @@ const showCategoryDetailsPage = async (req, res) => {
 }
 
 const showAssignCategoriesForm = async (req, res) => {
-    const projectId = req.params.id;
+    const projectId = req.params.projectId;
     const projectDetails = await getProjectDetails(projectId);
     const categories = await  getAllCategories();
     const assignedCategories = await getProjectCategories(projectId);
     const title = 'Assign Categories to Project';
+
+    console.log("we get as far as showAssignCategoriesForm")
+    console.log("projectId is " + projectId)
 
     res.render('assign-categories', {
                                     projectDetails,
