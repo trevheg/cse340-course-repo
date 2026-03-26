@@ -94,8 +94,6 @@ const processNewCategoryForm = async (req, res) => {
     }
 
     const { name, description } = req.body;
-      console.log("category name " + name)
-  console.log("category description " + description)
 
     try {
         // Create the new category in the database
