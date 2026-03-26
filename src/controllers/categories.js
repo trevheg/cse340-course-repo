@@ -3,7 +3,8 @@ import {
     getCategoryDetails, 
     getCategoryProjects, 
     updateCategoryAssignments,
-    createCategory 
+    createCategory,
+    updateCategory
 } from '../models/categories.js';
 import { getProjectDetails, getProjectCategories } from '../models/projects.js';
 import { body, validationResult } from 'express-validator';
@@ -108,6 +109,34 @@ const processNewCategoryForm = async (req, res) => {
     }    
 };
 
+const showEditCategoryForm = async (req, res) => {
+    const categoryId = req.params.categoryId;
+    const categoryDetails = await getCategoryDetails(categoryId);
+    const title = 'Edit Category';
+    res.render('edit-category', {title, categoryDetails, currentPage: 'edit-category'})
+};
+
+const processEditCategoryForm = async (req, res) => {
+
+    const results = validationResult(req);
+    if (!results.isEmpty()) {
+        // Validation failed - loop through errors
+        results.array().forEach((error) => {
+            req.flash('error', error.msg);
+        });
+
+        // Redirect back to the edit category form
+        return res.redirect('/edit-category/' + req.params.categoryId);
+    }
+
+    const categoryId = req.params.categoryId;
+    const { name, description } = req.body;
+    await updateCategory(categoryId, name, description);
+    
+    req.flash('success', 'Category updated successfully!');
+    res.redirect(`/edit-category/${categoryId}`);
+};
+
 export { 
     showCategoriesPage, 
     showCategoryDetailsPage,
@@ -115,5 +144,7 @@ export {
     processAssignCategoriesForm,
     showNewCategoryForm,
     processNewCategoryForm,
-    categoryValidation
+    categoryValidation, 
+    showEditCategoryForm,
+    processEditCategoryForm
 };

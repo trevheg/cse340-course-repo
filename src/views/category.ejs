@@ -4,8 +4,10 @@
     <h1><%= title %>:</h1>
     <div class="info-box">
         <h2><%= categoryDetails.category_name %></h2>
-        <p><%= categoryDetails.category_description %></p>        
+        <p><%= categoryDetails.category_description %></p>
+        <p><a href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></p>         
     </div>
+
 
     <ul class="card-list">
         <% categoryProjects.forEach(project => { %>
