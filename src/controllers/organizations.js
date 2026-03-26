@@ -77,7 +77,7 @@ const showEditOrganizationForm = async (req, res) => {
     const organizationId = req.params.id;
     const organizationDetails = await getOrganizationDetails(organizationId);
     const title = 'Edit Organization';
-    res.render('edit-organization', {title, organizationDetails, currentPage: 'organization-details'})
+    res.render('edit-organization', {title, organizationDetails, currentPage: 'edit-organization'})
 };
 
 const processEditOrganizationForm = async (req, res) => {
@@ -89,7 +89,7 @@ const processEditOrganizationForm = async (req, res) => {
             req.flash('error', error.msg);
         });
 
-        // Redirect back to the new organization form
+        // Redirect back to the edit organization form
         return res.redirect('/edit-organization'/ + req.params.id);
     }
 

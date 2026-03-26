@@ -180,6 +180,22 @@ html, body {
                 flex-direction: column;
                 gap: 0.5rem;
                 margin-bottom: 1rem;
+                /* align-items: center; */
+            }
+
+            .checkbox-item {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem; /* space between checkbox and label */
+            }
+
+            .checkbox-item input[type="checkbox"] {
+                order: 0; /* input first */
+            }
+
+            .checkbox-item label {
+                order: 1;
+                cursor: pointer;
             }
 
             label {
@@ -187,7 +203,7 @@ html, body {
                 font-weight: 600;
             }
 
-            textarea, input {
+            textarea, input, select {
                 width: 100%;
                 box-sizing: border-box;
                 padding: 0.8rem 0.9rem; /* roomy for touch */
@@ -195,6 +211,8 @@ html, body {
                 border: 1px solid #ccc;
                 border-radius: 8px;
             }
+
+
 
             button {
                 padding: 0.9rem 1.2rem;

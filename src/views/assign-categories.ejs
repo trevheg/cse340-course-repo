@@ -5,7 +5,7 @@
     <form class="add-form" action="/assign-categories/<%= projectId %>" method="POST">
         <div class="form-group">
             <% categories.forEach(category => { %>
-                <div>
+                <div class="checkbox-item">
                 <input
                     type="checkbox"
                     id="category-<%= category.category_id %>"

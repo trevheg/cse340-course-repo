@@ -82,6 +82,7 @@ const getProjectDetails = async (id) => {
     return result.rows.length > 0 ? result.rows[0] : null;
 };
 
+// Get all the categories associated with a project
 const getProjectCategories = async(projectId) => {
   const query = `
     SELECT 
@@ -122,11 +123,38 @@ const createProject = async(title, description, location, date, organizationId) 
   return result.rows[0].project_id;
 }
 
+const updateProject = async (projectId, title, description, location, date, organizationId) => {
+  const query = `
+    UPDATE service_projects
+    SET title = $2,
+        description = $3,
+        location = $4,
+        date = $5,
+        organization_id = $6
+    WHERE project_id = $1
+    RETURNING project_id;
+  `;
+
+  const query_params = [projectId, title, description, location, date, organizationId];
+  const result = await db.query(query, query_params);
+
+  if (result.rows.length === 0) {
+    throw new Error('Service Project not found');
+  }
+
+  if (process.env.ENABLE_SQL_LOGGING === 'true') {
+    console.log('Updated service_project with ID:', projectId);
+  }
+
+  return result.rows[0].organization_id;  
+}
+
 // Export the model functions
 export { getAllProjects, 
          getProjectsByOrganizationId, 
          getUpcomingProjects, 
          getProjectDetails, 
          getProjectCategories,
-         createProject 
+         createProject,
+         updateProject 
         };

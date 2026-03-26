@@ -27,6 +27,7 @@ const getCategoryDetails = async(categoryId) => {
   return result.rows.length > 0 ? result.rows[0] : null;
 };
 
+// get all the projects associated with a category
 const getCategoryProjects = async(categoryId) => {
   const query = `
     SELECT 
