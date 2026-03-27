@@ -134,7 +134,7 @@ const processEditCategoryForm = async (req, res) => {
     await updateCategory(categoryId, name, description);
     
     req.flash('success', 'Category updated successfully!');
-    res.redirect(`/edit-category/${categoryId}`);
+    res.redirect(`/category/${categoryId}`);
 };
 
 export { 
