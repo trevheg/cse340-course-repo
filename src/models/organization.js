@@ -26,7 +26,6 @@ const createOrganization = async (name, description, contactEmail, logoFilename)
     if (process.env.ENABLE_SQL_LOGGING === 'true') {
         console.log('Created new organization with ID:', result.rows[0].organization_id);
     }
-
     return result.rows[0].organization_id;
 };
 

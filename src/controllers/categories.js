@@ -112,14 +112,16 @@ const processNewCategoryForm = async (req, res) => {
 const showEditCategoryForm = async (req, res) => {
     const categoryId = req.params.categoryId;
     const categoryDetails = await getCategoryDetails(categoryId);
+    const formData = req.flash('formData')[0] || {};
     const title = 'Edit Category';
-    res.render('edit-category', {title, categoryDetails, currentPage: 'edit-category'})
+    res.render('edit-category', {title, categoryDetails, formData, currentPage: 'edit-category'})
 };
 
 const processEditCategoryForm = async (req, res) => {
 
     const results = validationResult(req);
     if (!results.isEmpty()) {
+        req.flash('formData', { name: req.body.name, description: req.body.description });
         // Validation failed - loop through errors
         results.array().forEach((error) => {
             req.flash('error', error.msg);

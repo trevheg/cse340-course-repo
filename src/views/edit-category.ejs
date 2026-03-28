@@ -9,7 +9,7 @@
         type="text"
         id="name"
         name="name" 
-        value="<%= categoryDetails.category_name %>"
+        value="<%= (formData.name || categoryDetails.category_name) %>"
         required
         maxlength="150"
       />
@@ -22,7 +22,7 @@
         name="description"
         required
         maxlength="500"
-      ><%= categoryDetails.category_description %></textarea>
+      ><%= (formData.description || categoryDetails.category_description) %></textarea>
     </div>
 
     <button type="submit">Edit Category</button>

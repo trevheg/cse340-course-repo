@@ -54,8 +54,8 @@ router.post('/edit-organization/:id', organizationValidation, processEditOrganiz
 router.post('/new-project', projectValidation, processNewProjectForm);
 router.post('/assign-categories/:projectId', processAssignCategoriesForm);
 router.post('/edit-project/:projectId', projectValidation, processEditProjectForm);
-router.post('/new-category', categoryValidation, processNewCategoryForm),
-router.post('/edit-category/:categoryId', categoryValidation, processEditCategoryForm)
+router.post('/new-category', categoryValidation, processNewCategoryForm);
+router.post('/edit-category/:categoryId', categoryValidation, processEditCategoryForm);
 
 // error-handling routes
 router.get('/test-error', showTestErrorPage);

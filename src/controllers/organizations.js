@@ -75,6 +75,7 @@ const processNewOrganizationForm = async (req, res) => {
 
 const showEditOrganizationForm = async (req, res) => {
     const organizationId = req.params.id;
+    console.log('params id is ' + req.params.id)
     const organizationDetails = await getOrganizationDetails(organizationId);
     const title = 'Edit Organization';
     res.render('edit-organization', {title, organizationDetails, currentPage: 'edit-organization'})
@@ -90,7 +91,7 @@ const processEditOrganizationForm = async (req, res) => {
         });
 
         // Redirect back to the edit organization form
-        return res.redirect('/edit-organization'/ + req.params.id);
+        return res.redirect('/edit-organization/' + req.params.id);
     }
 
     const organizationId = req.params.id;

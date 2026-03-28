@@ -107,7 +107,7 @@ const processEditProjectForm = async (req, res) => {
     });
 
     // Redirect back to the edit project form
-    return res.redirect('/edit-project'/ + req.params.projectId);
+    return res.redirect('/edit-project/' + req.params.projectId);
     }
 
     const projectId = req.params.projectId;
