@@ -61,7 +61,7 @@ const showNewProjectForm = async (req, res) => {
     res.render('new-project', {title,
                                 currentPage: 'new-project',
                                 organizations
-    })
+    });
 };
 
 const processNewProjectForm = async (req, res) => {
