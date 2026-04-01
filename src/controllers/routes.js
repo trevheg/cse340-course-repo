@@ -75,7 +75,7 @@ router.get('/register', showUserRegistrationForm);
 router.post('/register', processUserRegistrationForm);
 router.get('/login', showLoginForm);
 router.post('/login', processLoginForm);
-router.post('/logout', processLogout);
+router.get('/logout', processLogout);
 
 // error-handling routes
 router.get('/test-error', showTestErrorPage);

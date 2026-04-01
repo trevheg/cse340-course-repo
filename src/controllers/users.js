@@ -33,7 +33,7 @@ const showLoginForm = async (req, res) => {
 const processLoginForm = async (req, res) => {
     const {email, password} = req.body;
     try {
-        const user = authenticateUser(email, password);
+        const user = await authenticateUser(email, password);
 
         if(user) {
             req.session.user = user;
