@@ -32,7 +32,7 @@ const showOrganizationsPage = async (req, res) => {
     res.render('organizations', { title, 
                                   currentPage: 'organizations',
                                   organizations });
-}
+};
 
 const showOrganizationDetailsPage = async (req, res) => {
     const organizationId = req.params.id;
