@@ -35,7 +35,9 @@ import {
     processUserRegistrationForm,
     showLoginForm,
     processLoginForm,
-    processLogout
+    processLogout,
+    requireLogin,
+    showDashboard
 } from './users.js';
 
 import { showTestErrorPage } from './errors.js';
@@ -76,6 +78,8 @@ router.post('/register', processUserRegistrationForm);
 router.get('/login', showLoginForm);
 router.post('/login', processLoginForm);
 router.get('/logout', processLogout);
+// by putting requireLogin before showDashboard, we ensure that only authenticated users can access the dashboard
+router.get('/dashboard', requireLogin, showDashboard);
 
 // error-handling routes
 router.get('/test-error', showTestErrorPage);
