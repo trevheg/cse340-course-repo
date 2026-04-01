@@ -5,7 +5,9 @@
     <div class="info-box">
         <h2><%= categoryDetails.category_name %></h2>
         <p><%= categoryDetails.category_description %></p>
-        <p><a href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></p>         
+        <% if (user && user.role_name === 'admin') { %>
+            <p><a href="/edit-category/<%= categoryDetails.category_id %>">Edit Category</a></p>
+        <% } %>         
     </div>
     <h2>Projects in this category:</h2>
 

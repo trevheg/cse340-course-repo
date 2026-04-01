@@ -8,7 +8,10 @@
         <p>Date: <%= projectDetails.date.toLocaleDateString('en-US') %></p>
         <p>Loation: <%= projectDetails.location %></p>
         <a href="/organization/<%= projectDetails.organization_id %>"><p>Partner Organization: <%= projectDetails.organization_name %></p></a>  
-        <p><a href="/edit-project/<%= projectDetails.project_id %>">Edit Service Project</a></p>              
+        <% if (user && user.role_name === 'admin') { %>
+            <p><a href="/edit-project/<%= projectDetails.project_id %>">Edit Service Project</a></p>   
+        <% } %>
+           
     </div>
 
     <ul class="card-list">
@@ -20,7 +23,10 @@
             </li>
         <% }) %>
     </ul>
-    <a href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
+    <% if (user && user.role_name === 'admin') { %>
+
+        <a href="/assign-categories/<%= projectDetails.project_id %>">Edit Categories</a>
+    <% } %>
 
 </main>
 
