@@ -6,7 +6,7 @@ Render page: https://cse340-tgh.onrender.com/
 Render database resets April 9
 
 Monday: 1:30
-Tuesday:
+Tuesday: 2:40
 Wednesday:
 Thursday:
 Friday:
