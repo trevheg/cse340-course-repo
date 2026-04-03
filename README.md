@@ -42,3 +42,17 @@ The application is fully functional at the hosting server and looks professional
 100 pts
 1) Complete
 All rubric rows are at the Complete level.
+
+W06 Assignment: Additional Feature
+<!-- Update your database schema to include a new table to track which users have volunteered for which projects. -->
+<!-- Users should be able to volunteer for more than one project and projects should be able to have multiple volunteers. -->
+<!-- Remember to update your setup.sql file to include this new table. -->
+<!-- Create the necessary model functions to add and remove volunteers from projects, as well as to retrieve the list of projects a user has volunteered for. -->
+<!-- Update the project details view to include a volunteer link that only appears if the user is logged in. -->
+<!-- When a logged-in user clicks the volunteer link, they should be added as a volunteer for that project. -->
+If the user has selected to volunteer for the project, the link should change to indicate that they are now a volunteer (For example, "You are volunteering for this project"). Then there should be a link to remove themselves as a volunteer.
+When a user clicks the link to remove themselves as a volunteer, they should be removed as a volunteer for that project.
+<!-- If a user is not logged in, they should not see any volunteer functionality. -->
+Ensure that the the routes for adding and removing volunteering projects are protected by middleware and only accessible to logged-in users.
+On the dashboard page, show a list of all the projects that the user has signed up to volunteer for. Next to each project, provide an option to remove themselves as a volunteer.
+Test all new functionality thoroughly to ensure it works as expected.

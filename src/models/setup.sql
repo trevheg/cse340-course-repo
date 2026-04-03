@@ -112,3 +112,11 @@ CREATE TABLE users (
 	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE user_projects (
+	user_id INTEGER NOT NULL,
+	project_id INTEGER NOT NULL,
+	PRIMARY KEY (user_id, project_id),
+	FOREIGN KEY (user_id) REFERENCES users(user_id),
+	FOREIGN KEY (project_id) REFERENCES service_projects(project_id)
+);
+

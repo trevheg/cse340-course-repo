@@ -94,7 +94,7 @@ const getProjectCategories = async(projectId) => {
     JOIN project_categories AS pc ON p.project_id = pc.project_id
     JOIN categories AS c ON c.category_id = pc. category_id
     WHERE p.project_id = $1;
-  `
+  `;
 
   const query_params = [projectId];
   const result = await db.query(query, query_params);
@@ -149,6 +149,21 @@ const updateProject = async (projectId, title, description, location, date, orga
   return result.rows[0].organization_id;  
 }
 
+const getProjectUsers = async (projectId) => {
+  const query = `
+    SELECT
+      p.project_id,
+      u.user_id
+      FROM service_projects AS p 
+      JOIN user_projects AS up ON p.project_id = up.project_id
+      JOIN users AS u ON u.user_id = up.user_id 
+      WHERE p.project_id = $1;
+    `;
+    const query_params = [projectId];
+    const result = await db.query(query, query_params);
+    return result.rows;
+};
+
 // Export the model functions
 export { getAllProjects, 
          getProjectsByOrganizationId, 
@@ -156,5 +171,6 @@ export { getAllProjects,
          getProjectDetails, 
          getProjectCategories,
          createProject,
-         updateProject 
+         updateProject,
+         getProjectUsers 
         };

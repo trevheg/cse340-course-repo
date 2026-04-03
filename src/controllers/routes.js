@@ -39,7 +39,8 @@ import {
     requireLogin,
     showDashboard,
     requireRole,
-    showUsersPage
+    showUsersPage,
+    processAddUserToProject
 } from './users.js';
 
 import { showTestErrorPage } from './errors.js';
@@ -83,6 +84,7 @@ router.get('/logout', processLogout);
 // by putting requireLogin before showDashboard, we ensure that only authenticated users can access the dashboard
 router.get('/dashboard', requireLogin, showDashboard);
 router.get('/users', requireRole('admin'), showUsersPage);
+router.get('/volunteer/:projectId', processAddUserToProject)
 
 // error-handling routes
 router.get('/test-error', showTestErrorPage);

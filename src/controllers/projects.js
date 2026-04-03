@@ -3,7 +3,8 @@ import { getAllProjects,
          getProjectDetails, 
          getProjectCategories, 
          createProject,
-         updateProject
+         updateProject,
+         getProjectUsers
         } from '../models/projects.js';
 import { getAllOrganizations } from '../models/organizations.js';
 import { body, validationResult } from 'express-validator';
@@ -43,13 +44,15 @@ const showProjectDetailsPage = async (req, res) => {
     const projectId = req.params.id;
     const projectDetails = await getProjectDetails(projectId);
     const projectCategories = await getProjectCategories(projectId);
+    const projectUsers = await getProjectUsers(projectId);
 
     const title = 'Project Details';
 
     res.render('project', {title, 
                            currentPage: 'project',
                            projectDetails,
-                           projectCategories} 
+                           projectCategories,
+                            projectUsers} 
     );
 
 }

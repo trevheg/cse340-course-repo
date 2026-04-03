@@ -71,8 +71,44 @@ const getAllUsers = async() => {
     return result.rows;
 }
 
+const addUserToProject = async (userId, projectId) => {
+    const query = `
+        INSERT INTO user_projects (user_id, project_id)
+        VALUES ($1, $2);  
+    `;
+    
+    const query_params = [userId, projectId];
+    await db.query(query, query_params);
+};
+
+const removeUserFromProject = async (userId, projectId) => {
+    const query = `
+        DELETE FROM user_projects
+        WHERE user_id = $1 AND project_id = $2
+    `;
+};
+
+const getUserProjects = async (userId) => {
+    const query = `
+        SELECT 
+            u.user_id,
+            p.project_id,
+            p.title AS project_title
+        FROM users AS u 
+        JOIN user_projects AS up ON u.user_id = up.user_id
+        JOIN service_projects AS p ON p.project_id = up.project_id 
+        WHERE u.user_id = $1;
+    `;
+    const query_params = [userId];
+    const result = await db.query(query, query_params);
+    return result.rows;
+};
+
 export { 
     createUser, 
     authenticateUser,
-    getAllUsers 
+    getAllUsers,
+    addUserToProject,
+    removeUserFromProject,
+    getUserProjects
 };

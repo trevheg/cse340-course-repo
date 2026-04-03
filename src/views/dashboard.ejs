@@ -10,6 +10,14 @@
             <p><a href="/users">View a list of Users</a></p>
         <% } %>        
     </div>
+    <h2>Your projects:</h2>
+    <ul class="card-list">
+        <% userProjects.forEach(project => { %>
+            <li class="card">
+                <a href="/project/<%= project.project_id %>"><h2><%= project.project_title %></h2></a>
+            </li>
+        <% }) %>
+    </ul>
 
 
 </main>
