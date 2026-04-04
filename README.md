@@ -12,7 +12,7 @@ Tuesday: 2:40
 Wednesday: 3
 
 Thursday: 2
-Friday:
+Friday: 1:30
 
 1. Users and Login Functionality
 0 pts
