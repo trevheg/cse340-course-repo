@@ -6,13 +6,17 @@
         <h2><%= projectDetails.title  %></h2>  
         <p>Description: <%= projectDetails.description %></p>
         <p>Date: <%= projectDetails.date.toLocaleDateString('en-US') %></p>
-        <p>Loation: <%= projectDetails.location %></p>
+        <p>Location: <%= projectDetails.location %></p>
         <a href="/organization/<%= projectDetails.organization_id %>"><p>Partner Organization: <%= projectDetails.organization_name %></p></a>  
         <% if (user && user.role_name === 'admin') { %>
             <p><a href="/edit-project/<%= projectDetails.project_id %>">Edit Service Project</a></p>   
         <% } %>
         <% if (user) { %>
-            <a href="/volunteer/<%= projectDetails.project_id %>">Volunteer for this project</a>
+            <% if (projectUsers.some(projectUser => projectUser.user_id === user.user_id )) {%>
+                    <p>You are volunteering for this project. <a href="/unvolunteer/<%= projectDetails.project_id %>">Unvolunteer</a></p>
+                <% } else {%>
+                    <a href="/volunteer/<%= projectDetails.project_id %>">Volunteer for this project</a>
+                <% } %>
         <% } %>
            
     </div>

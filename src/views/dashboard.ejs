@@ -11,10 +11,12 @@
         <% } %>        
     </div>
     <h2>Your projects:</h2>
+    <a href="/volunteering">Click here to see a list of the projects you are volunteering for because for some reason the assignment asks for a list of your volunteered projects both on the dashboard and on a separate volunteering page. </a>
     <ul class="card-list">
         <% userProjects.forEach(project => { %>
             <li class="card">
                 <a href="/project/<%= project.project_id %>"><h2><%= project.project_title %></h2></a>
+                <a href="/unvolunteer/<%= project.project_id %>" class="unvolunteer">Unvolunteer</a>
             </li>
         <% }) %>
     </ul>

@@ -68,7 +68,7 @@ const processLogout = async (req, res) => {
 
 const requireLogin = (req, res, next) => {
     if (!req.session || !req.session.user) {
-        req.flash('error', 'You are not authorized to be here.');
+        req.flash('error', 'You need to be logged in to access this page.');
         return res.redirect('/login');
     }
     next();
@@ -76,8 +76,7 @@ const requireLogin = (req, res, next) => {
 
 const showDashboard = async (req, res) => {
     const user = req.session.user;
-    const userProjects = await getUserProjects(user['user_id'])
-    console.log(userProjects)
+    const userProjects = await getUserProjects(user['user_id']);
     res.render('dashboard', {
         title: 'Dashboard', 
         name: user.name, 
@@ -115,11 +114,28 @@ const showUsersPage = async (req, res) => {
                          users});
 };
 
-const processAddUserToProject = async (req,res) => {
+const processAddUserToProject = async (req, res) => {
     const userId = req.session.user['user_id'];
     const projectId = req.params.projectId;
     addUserToProject(userId, projectId);
     res.redirect(`/project/${projectId}`);
+};
+
+const processRemoveUserFromProject = async (req, res) => {
+    const userId = req.session.user['user_id'];
+    const projectId = req.params.projectId;
+    removeUserFromProject(userId, projectId);
+    res.redirect(`/dashboard`);
+};
+
+const showVolunteeringPage = async (req, res) => {
+    const user = req.session.user;
+    const userProjects = await getUserProjects(user['user_id']);
+    res.render('volunteering', {
+        title: 'Volunteering', 
+        currentPage: 'volunteering',
+        userProjects
+    });    
 }
 
 export { 
@@ -132,5 +148,7 @@ export {
     showDashboard,
     requireRole,
     showUsersPage,
-    processAddUserToProject 
+    processAddUserToProject,
+    processRemoveUserFromProject,
+    showVolunteeringPage 
 };

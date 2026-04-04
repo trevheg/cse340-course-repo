@@ -84,8 +84,10 @@ const addUserToProject = async (userId, projectId) => {
 const removeUserFromProject = async (userId, projectId) => {
     const query = `
         DELETE FROM user_projects
-        WHERE user_id = $1 AND project_id = $2
+        WHERE user_id = $1 AND project_id = $2;
     `;
+    const query_params = [userId, projectId];
+    await db.query(query, query_params);
 };
 
 const getUserProjects = async (userId) => {

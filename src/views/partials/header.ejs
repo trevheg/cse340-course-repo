@@ -10,6 +10,10 @@
     <nav>
         <ul>
             <li><a href="/" class="<%= currentPage === 'home' ? 'active' : '' %>">Home</a></li>
+            <% if (isLoggedIn) { %>
+                <li><a href="/dashboard" class="<%= currentPage === 'dashboard' ? 'active' : '' %>">Dashboard</a></li>
+                <li><a href="/volunteering" class="<%= currentPage === 'volunteering' ? 'active' : '' %>">Volunteering</a></li>
+            <% } %>
             <li><a href="/organizations" class="<%= currentPage === 'organizations' ? 'active' : '' %>">Organizations</a></li>
             <li><a href="/projects" class="<%= currentPage === 'projects' ? 'active' : '' %>">Projects</a></li>
             <li><a href="/categories" class="<%= currentPage === 'categories' ? 'active' : '' %>">Categories</a></li>            

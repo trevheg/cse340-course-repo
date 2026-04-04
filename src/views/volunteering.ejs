@@ -1,0 +1,16 @@
+<%- include('partials/header') %>
+<main>
+    <h1><%= title %></h1>
+    <h2>Your projects:</h2>
+    <ul class="card-list">
+        <% userProjects.forEach(project => { %>
+            <li class="card">
+                <a href="/project/<%= project.project_id %>"><h2><%= project.project_title %></h2></a>
+                <a href="/unvolunteer/<%= project.project_id %>" class="unvolunteer">Unvolunteer</a>
+            </li>
+        <% }) %>
+    </ul>
+
+
+</main>
+<%- include('partials/footer') %>

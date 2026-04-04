@@ -106,9 +106,9 @@ html, body {
 
         ul.card-list {
             list-style-type: none;
-            display: flex;              /* Enable flexbox layout */
-            flex-wrap: wrap;           /* Allow items to wrap to the next line */
-            justify-content: center;    /* Center items when wrapping */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             padding: 0; 
             margin: 0; 
 
@@ -118,17 +118,12 @@ html, body {
                 padding: 0;
                 border-radius: 8px;
                 text-align: center;
-                flex: 1 1 300px;    /* Allow cards to grow, shrink and maintain minimum width */
+                flex: 1 1 300px;
                 max-width: 350px;
                 margin: 1rem;
                 transition: transform 0.2s, box-shadow 0.2s;
-
-                &:hover {
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); 
-                    transform: translateY(-4px);
-                    background-color: var(--accent-color);
-                    transition: background-color 0.2s;
-                }
+                display: flex;
+                flex-direction: column;
 
                 img {
                     max-width: 100%;
@@ -151,7 +146,16 @@ html, body {
                     text-decoration: none;
                     display: block;
                     padding: 1rem;
+                    transition: background-color 0.2s;
+                    border-radius: 8px;
                     
+                    &:hover {
+                        background-color: var(--accent-color);
+                    }
+                }
+                    
+                .unvolunteer {
+                    margin-top: auto;
                 }
 
                 h2 {
@@ -159,7 +163,6 @@ html, body {
                 }
             }
         }
-
         .info-box {
             background: linear-gradient(135deg, var(--background-color), white);
             border-left: 5px solid var(--primary-color);
