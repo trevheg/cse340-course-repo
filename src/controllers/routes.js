@@ -1,5 +1,7 @@
 import express from 'express';
 
+// in a professional web application, instead of having all the routes in one file, you'd have a separate file with the routes for each category. Then you'd have a central routes.js file that would group all the routes together before exporting to server.js
+
 import { showIndexPage } from './index.js';
 import { 
     showOrganizationsPage, 

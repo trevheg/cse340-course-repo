@@ -7,12 +7,12 @@ password: asdfasdf
 
 Render database resets April 9
 
-Monday: 1:30
-Tuesday: 2:40
-Wednesday: 3
+Monday: 1
+Tuesday: 
+Wednesday: 
 
-Thursday: 2
-Friday: 1:30
+Thursday: 
+Friday: 
 
 1. Users and Login Functionality
 0 pts
